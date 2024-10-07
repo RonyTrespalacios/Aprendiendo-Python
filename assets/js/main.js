@@ -39,8 +39,11 @@ async function loadClassList() {
     { id: "class01", name: "Clase 01: Sintaxis Básica y Tipos de Datos" },
     { id: "class02", name: "Clase 02: Operadores y Expresiones" },
     { id: "class03", name: "Clase 03: Estructuras de Datos I" },
-    { id: "class04", name: "Clase 03: Estructuras de Datos II" },
-    { id: "class05", name: "Clase 04: Retos de Aprendizaje I" },
+    { id: "class04", name: "Clase 04: Estructuras de Datos II" },
+    { id: "class05", name: "Clase 05: Retos de Aprendizaje I" },
+    { id: "class06", name: "Clase 06: Estructuras de Control de Flujo I" },
+    { id: "class07", name: "Clase 07: Estructuras de Control de Flujo II" },
+    { id: "class08", name: "Clase 08: Estructuras de Control de Flujo III" },
   ];
 
   // Imprimir la lista de clases en consola para depurar
