@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Apuntes de Clases: Material didáctico sobre programación y tecnología"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/classStyles.css" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp" />
+    <!-- Prism.js para resaltado de sintaxis -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <title>Fundamentos de Python</title>
+  </head>
+  <body>
+    <!-- Contenedor principal -->
+    <div id="layout">
+      <!-- Barra lateral -->
+      <aside id="sidebar">
+        <h1>Python 2024</h1>
+        <h2>Rony Trespalacios</h2>
+        <nav>
+          <ul id="class-list">
+            <!-- Botón Home agregado -->
+            <li>
+              <a href="" id="home-button">🏠 Inicio</a>
+            </li>
+            <!-- Los enlaces de las clases se cargarán aquí dinámicamente desde main.js -->
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenedor de contenido principal -->
+      <main id="content">
+        <div id="class-content">
+          <!-- Aquí se cargará dinámicamente el contenido de las clases -->
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          &copy; 2024 Apuntes de Clases | Diseñado por
+          <a
+            href="https://www.linkedin.com/in/rony-trespalacios/"
+            target="_blank"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=ffffff"
+              alt="LinkedIn Icono"
+            />
+            Rony Trespalacios
+          </a>
+        </p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <script src="./assets/js/markdown.js"></script>
+    <!-- markdown.js debe cargarse antes -->
+    <script src="./assets/js/main.js"></script>
+    <!-- Luego se carga main.js -->
+  </body>
+</html>

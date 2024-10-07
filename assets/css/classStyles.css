@@ -1,0 +1,223 @@
+/* classStyles.css: Estilos para el contenido de las clases */
+
+/* Contenedor principal */
+#class-content {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Encabezados */
+#class-content h1,
+#class-content h2,
+#class-content h3 {
+  color: #2c3e50;
+  margin: 20px 0 10px;
+}
+
+#class-content h1 {
+  font-size: 2.5rem; /* Ajusta el tamaño del texto */
+  text-align: center;
+  background-color: #800020; /* Fondo color vinotinto */
+  color: #ffffff; /* Cambia el color del texto a blanco para mejor contraste */
+  padding: 15px 20px; /* Espaciado interno para que se vea más grande */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar más profundidad */
+}
+
+#class-content h2 {
+  font-size: 1.8rem;
+  border-left: 5px solid #3498db;
+  padding-left: 10px;
+}
+
+#class-content h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+/* Párrafos */
+#class-content p {
+  margin: 10px 0;
+  text-align: justify;
+}
+
+/* Estilos para elementos <code> sueltos */
+code {
+  background: #282c34;
+  color: #61dafb;
+  padding: 10px; /* Padding solo para <code> que no estén dentro de <pre> */
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Estilos para <pre> */
+pre {
+  background: #282c34;
+  color: #61dafb;
+  margin: 20px 0;
+  padding: 0px; /* Elimina el padding de <pre> */
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+  overflow-x: auto;
+}
+
+/* Estilos para <code> dentro de <pre> */
+pre code {
+  padding: 0px; /* Sin padding adicional en <code> dentro de <pre> */
+  background: none; /* Opcional: elimina el fondo adicional de <code> dentro de <pre> */
+  color: inherit; /* Hereda el color de <pre> */
+}
+
+/* Tablas */
+#class-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#class-content th,
+#class-content td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#class-content th {
+  background: #3498db;
+  color: white;
+}
+
+#class-content td {
+  background: #f9f9f9;
+}
+
+
+/* Listas */
+#class-content ul,
+#class-content ol {
+  margin: 10px 20px;
+}
+
+#class-content ul li,
+#class-content ol li {
+  margin-bottom: 10px;
+}
+
+/* Imágenes */
+#class-content img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+/* Bloque de citas */
+#class-content blockquote {
+  border-left: 4px solid #3498db;
+  padding-left: 10px;
+  color: #555;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+#class-content img {
+  display: block; /* Convertir las imágenes en elementos de tipo bloque */
+  margin: 20px auto; /* Centrarlas con margen automático */
+  max-width: 100%; /* Asegurar que la imagen no desborde su contenedor */
+  border-radius: 8px; /* Opcional: Agregar bordes redondeados a las imágenes */
+}
+
+/* Estilos específicos para la imagen con el ID 'banner-img' */
+#banner-img {
+  width: 100%; /* Asegurar que ocupe todo el ancho del contenedor */
+  height: 200px; /* Establecer una altura específica para hacerla tipo banner */
+  object-fit: cover; /* Recortar la imagen para adaptarse a la caja */
+}
+
+/* classStyles.css */
+
+/* Estilos específicos para los botones de navegación */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between; /* Distribuye los botones en los extremos */
+  margin-top: 20px; /* Separación del contenido */
+  user-select: none;
+}
+
+.navigation-buttons .prev-button,
+.navigation-buttons .next-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: #ffffff; /* Color de letra blanco */
+  background-color: #800020; /* Color de fondo personalizado */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+}
+
+.navigation-buttons .prev-button:hover,
+.navigation-buttons .next-button:hover {
+  background-color: #66001a; /* Color más oscuro al hacer hover */
+  transform: translateY(-3px);
+}
+
+.navigation-buttons .prev-button:active,
+.navigation-buttons .next-button:active {
+  background-color: #4d0013; /* Color aún más oscuro al hacer clic */
+  transform: translateY(0);
+}
+
+/* Botón deshabilitado */
+.navigation-buttons .disabled {
+  background-color: #a6a6a6; /* Color gris claro para botón deshabilitado */
+  cursor: not-allowed; /* Indica que no es clicable */
+  pointer-events: none; /* Desactiva la interacción */
+}
+
+/* Botón anterior se alinea a la izquierda */
+.navigation-buttons .prev-button {
+  margin-right: auto; /* Empuja el botón hacia la izquierda */
+}
+
+/* Botón siguiente se alinea a la derecha */
+.navigation-buttons .next-button {
+  margin-left: auto; /* Empuja el botón hacia la derecha */
+}
+
+
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  #class-content {
+    padding: 10px;
+  }
+
+  #class-content h1 {
+    font-size: 2rem;
+  }
+
+  #class-content h2 {
+    font-size: 1.5rem;
+  }
+
+  #class-content pre,
+  code {
+    font-size: 14px;
+  }
+  table {
+    width: 100%; /* Hacer que las tablas tomen el 100% del contenedor */
+    display: block; /* Cambiar a block para permitir scroll */
+    overflow-x: auto; /* Habilitar el scroll horizontal */
+    border-collapse: collapse; /* Asegurar que las celdas no se separen */
+  }
+
+  th,
+  td {
+    white-space: nowrap; /* Evitar que el contenido se divida en varias líneas */
+    padding: 10px; /* Ajustar el padding para que el contenido sea más compacto */
+  }
+}
