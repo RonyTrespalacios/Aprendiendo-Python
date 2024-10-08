@@ -127,8 +127,3 @@ num = int(input("Digite un numero: "))
 print("El numero esta entre 10 y 20:",num > 10 and num < 20)
 ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class01" class="prev-button">← Clase Anterior</a>
-    <a href="./#/class03" class="next-button">Clase Siguiente →</a>
-</div>

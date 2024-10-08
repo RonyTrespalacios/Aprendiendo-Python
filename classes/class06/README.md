@@ -392,21 +392,17 @@ ventas_mensuales = {
 }
 ```
 
-<details> <summary>Ver solución</summary>
-```python
-ventas_mensuales = {
-    "Enero": {"Producto A": 150, "Producto B": 230},
-    "Febrero": {"Producto A": 180, "Producto B": 220},
-    "Marzo": {"Producto A": 210, "Producto B": 190}
-}
+<details> 
+  <summary>Ver solución</summary>
+    ```python
+    ventas_mensuales = {
+        "Enero": {"Producto A": 150, "Producto B": 230},
+        "Febrero": {"Producto A": 180, "Producto B": 220},
+        "Marzo": {"Producto A": 210, "Producto B": 190}
+    }
 
-print("Ventas >>> \n\t" + "\n\t".join( f"{mes} : {', '.join([f'{p}: {v}' for p, v in value.items()])}" for mes, value in ventas_mensuales.items()))
-print("Ventas Mensuales >>> \n\t" + "\n\t".join( f"{mes} : {sum(value.values())}" for mes, value in ventas_mensuales.items()))
-print("Ventas por producto >>> \n\t" + "\n\t".join([f"{p}: {sum(mes.get(p, 0) for mes in ventas_mensuales.values())}" for p in {p for v in ventas_mensuales.values() for p in v}]))
-```
+    print("Ventas >>> \n\t" + "\n\t".join( f"{mes} : {', '.join([f'{p}: {v}' for p, v in value.items()])}" for mes, value in ventas_mensuales.items()))
+    print("Ventas Mensuales >>> \n\t" + "\n\t".join( f"{mes} : {sum(value.values())}" for mes, value in ventas_mensuales.items()))
+    print("Ventas por producto >>> \n\t" + "\n\t".join([f"{p}: {sum(mes.get(p, 0) for mes in ventas_mensuales.values())}" for p in {p for v in ventas_mensuales.values() for p in v}]))
+    ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class05" class="prev-button">← Clase Anterior</a>
-    <a href="./#/class07" class="next-button">Clase Siguiente →</a>
-</div>

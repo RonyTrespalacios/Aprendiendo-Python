@@ -93,8 +93,3 @@ adivinanza = None
 No disponible.
 ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class07" class="prev-button">← Clase Anterior</a>
-    <a class="next-button disabled">Clase Siguiente →</a>
-</div>

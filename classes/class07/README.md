@@ -164,19 +164,19 @@ inventario = {
 ```
 
 <details> <summary>Ver solución</summary>
-```python
-inventario = {
-    "Televisor": 5,
-    "Lavadora": 12,
-    "Microondas": 8,
-    "Refrigerador": 15,
-    "Aspiradora": 9,
-    "Horno": 11
-}
+    ```python
+    inventario = {
+        "Televisor": 5,
+        "Lavadora": 12,
+        "Microondas": 8,
+        "Refrigerador": 15,
+        "Aspiradora": 9,
+        "Horno": 11
+    }
 
-lista_premium = [(producto +" Premium") for producto, stock in inventario.items() if stock>10]
-print(", ".join(lista_premium))
-```
+    lista_premium = [(producto +" Premium") for producto, stock in inventario.items() if stock>10]
+    print(", ".join(lista_premium))
+    ```
 </details>
 
 #### **Ejercicio 7**:
@@ -198,22 +198,17 @@ comentarios = {
 Estos ejercicios están diseñados para que practiques la manipulación de strings y el uso de condicionales junto con bucles en una sola línea de código, aplicando lo aprendido de manera efectiva.
 
 <details> <summary>Ver solución</summary>
-```python
-comentarios = {
-    "user123": "Este producto es excelente, me encantó",
-    "user456": "No es tan bueno como esperaba",
-    "user789": "¡Excelente calidad y servicio!",
-    "user101": "Es decente, pero el precio es alto",
-    "user202": "No está mal, pero tiene fallos",
-    "user303": "Increíblemente excelente, lo recomendaré a todos"
-}
+    ```python
+    comentarios = {
+        "user123": "Este producto es excelente, me encantó",
+        "user456": "No es tan bueno como esperaba",
+        "user789": "¡Excelente calidad y servicio!",
+        "user101": "Es decente, pero el precio es alto",
+        "user202": "No está mal, pero tiene fallos",
+        "user303": "Increíblemente excelente, lo recomendaré a todos"
+    }
 
-lista = [comment for comment in comentarios.values() if comment.lower().find("excelente") != -1]
-print("\n".join(lista))
-```
+    lista = [comment for comment in comentarios.values() if comment.lower().find("excelente") != -1]
+    print("\n".join(lista))
+    ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class06" class="prev-button">← Clase Anterior</a>
-    <a href="./#/class08" class="next-button">Clase Siguiente →</a>
-</div>

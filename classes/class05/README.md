@@ -80,8 +80,3 @@ usuario2 = {"Música", "Viajes", "Cine"}
 print("Gustos en comun:", ", ".join(usuario1 & usuario2))
 ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class04" class="prev-button">← Clase Anterior</a>
-    <a class="next-button disabled">Clase Siguiente →</a>
-</div>

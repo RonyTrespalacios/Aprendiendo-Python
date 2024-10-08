@@ -175,8 +175,3 @@ single = curso_a ^ curso_b
 print("Estan en un solocurso:", ", ".join(single))
 ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class03" class="prev-button">← Clase Anterior</a>
-    <a href="./#/class05" class="next-button">Clase Siguiente →</a>
-</div>

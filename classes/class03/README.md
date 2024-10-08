@@ -353,8 +353,3 @@ for clave, valor in encuesta.items():
     print(f"La respuesta a la pregunta {cont} es \'{valor}\'")
 ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class02" class="prev-button">← Clase Anterior</a>
-    <a href="./#/class04" class="next-button">Clase Siguiente →</a>
-</div>

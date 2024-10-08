@@ -94,7 +94,3 @@ apellido = "Trespalacios"
 print("Hola, "+ nombre +" "+ apellido +"!")
 ```
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class02" class="next-button">Clase Siguiente →</a>
-</div>
