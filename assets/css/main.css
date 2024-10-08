@@ -1,4 +1,5 @@
 /* main.css: Estilo global y layout */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 /* Reset básico */
 * {
@@ -9,9 +10,9 @@
 
 /* Body */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", sans-serif;
   background: #f4f4f4;
-  color: #333;
+  color: #222;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
@@ -28,9 +29,9 @@ body {
 
 /* Sidebar */
 #sidebar {
-  background: #2c3e50;
+  background: #4a154b;
   color: #ffffff;
-  font-size: small;
+  font-size: medium;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   grid-column: 1 / 2; /* Sidebar en la primera columna */
@@ -65,7 +66,7 @@ body {
 }
 
 #sidebar nav ul li a {
-  color: #ecf0f1;
+  color: #eaeaea;
   text-decoration: none;
   padding: 10px;
   display: block;
@@ -74,14 +75,14 @@ body {
 }
 
 #sidebar nav ul li a:hover {
-  background: #3498db;
+  background: #ff4500;
 }
 
 /* Contenedor principal */
 #content {
   padding: 40px;
   overflow-y: auto; /* Permitir scroll solo en el contenido */
-  background: #ffffff;
+  background: #eaeaea;
   grid-column: 2 / 3; /* Contenido en la segunda columna */
   grid-row: 1 / 2; /* Contenido ocupa la primera fila */
   min-height: calc(
@@ -92,7 +93,7 @@ body {
 
 /* Footer dentro de #layout */
 footer {
-  background: #2c3e50;
+  background: #4a154b;
   color: #ffffff;
   text-align: center;
   padding: 20px;
@@ -114,7 +115,7 @@ footer a {
   color: #ecf0f1;
   text-decoration: none;
   padding: 10px 20px;
-  background: #3498db;
+  background: #ff4500;
   border: 2px solid transparent;
   border-radius: 25px;
   font-weight: 600;
@@ -123,7 +124,7 @@ footer a {
 }
 
 footer a:hover {
-  background: #2980b9;
+  background: #ff6633;
   border-color: #ecf0f1;
   transform: scale(1.05);
 }
