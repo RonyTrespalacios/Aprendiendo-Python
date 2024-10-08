@@ -25,14 +25,20 @@ allDetails.forEach((details) => {
 });
 
 const classes = [
-  { id: "class01", name: "Clase 01: Sintaxis Básica y Tipos de Datos" },
-  { id: "class02", name: "Clase 02: Operadores y Expresiones" },
-  { id: "class03", name: "Clase 03: Estructuras de Datos I" },
-  { id: "class04", name: "Clase 04: Estructuras de Datos II" },
-  { id: "class05", name: "Clase 05: Retos de Aprendizaje I" },
-  { id: "class06", name: "Clase 06: Estructuras de Control de Flujo I" },
-  { id: "class07", name: "Clase 07: Estructuras de Control de Flujo II" },
-  { id: "class08", name: "Clase 08: Estructuras de Control de Flujo III" },
+  { id: "class01", name: "Clase 1: Sintaxis Básica y Tipos de Datos" },
+  { id: "class02", name: "Clase 2: Operadores y Expresiones" },
+  { id: "class03", name: "Clase 3: Estructuras de Datos I" },
+  { id: "class04", name: "Clase 4: Estructuras de Datos II" },
+  { id: "class05", name: "Clase 5: Retos de Aprendizaje I" },
+  { id: "class06", name: "Clase 6: Estructuras de Control de Flujo I" },
+  { id: "class07", name: "Clase 7: Estructuras de Control de Flujo II" },
+  { id: "class08", name: "Clase 8: Estructuras de Control de Flujo III" },
+  { id: "class09", name: "Clase 9: Manejo de Errores y Excepciones" },
+  { id: "class10", name: "Clase 10: Funciones y Modularidad" },
+  { id: "class11", name: "Clase 11: Introducción a POO" },
+  { id: "class12", name: "Clase 12: Encapsulamiento" },
+  { id: "class13", name: "Clase 13: Herencia" },
+  { id: "class14", name: "Clase 14: Polimorfismo" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
