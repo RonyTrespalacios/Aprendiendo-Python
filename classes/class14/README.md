@@ -1,115 +1,95 @@
-# Polimorfismo
+# Herencia
 
-### 5.1. Qué es el Polimorfismo
-El polimorfismo es un concepto clave en la Programación Orientada a Objetos que permite a diferentes clases implementar métodos con el mismo nombre pero comportarse de manera distinta. En otras palabras, el polimorfismo permite que un mismo método funcione de diferentes maneras según el objeto que lo esté invocando.
+### 4.1. Concepto de Herencia en POO
+La herencia es un principio fundamental en la Programación Orientada a Objetos que permite crear nuevas clases a partir de clases existentes. La clase nueva, llamada subclase o clase derivada, hereda atributos y métodos de la clase existente, conocida como superclase o clase base. Esto facilita la reutilización de código y la creación de estructuras jerárquicas.
 
-### 5.2. Polimorfismo en Métodos
-El polimorfismo se puede lograr mediante la sobrescritura de métodos en subclases. Diferentes clases pueden tener un método con el mismo nombre, pero cada uno implementa la lógica que es específica para esa clase.
+- **Ventajas de la herencia:**
+  - **Reutilización de código:** Permite extender las funcionalidades de clases existentes sin reescribir el código.
+  - **Organización:** Facilita la creación de estructuras jerárquicas donde las clases se organizan de manera lógica.
 
-#### Ejemplo en un contexto de videojuegos:
-Imagina un videojuego de estrategia donde diferentes tipos de unidades pueden atacar. Cada unidad (por ejemplo, Soldado, Arquero, Mago) tiene un método `atacar()`, pero la forma en que atacan es diferente.
+### 4.2. Creación de Subclases
+Para crear una subclase en Python, defines una nueva clase que hereda de una clase existente. Esto se hace colocando el nombre de la superclase entre paréntesis después del nombre de la subclase.
 
+- **Sintaxis básica:**
+  ```python
+  class SuperClase:
+      # Atributos y métodos de la superclase
+
+  class SubClase(SuperClase):
+      # Atributos y métodos adicionales de la subclase
+  ```
+
+Ejemplo:
 ```python
-class Unidad:
-    def atacar(self):
-        raise NotImplementedError("Este método debe ser sobrescrito por subclases")
+class Animal:
+    def __init__(self, nombre):
+        self.nombre = nombre
 
-class Soldado(Unidad):
-    def atacar(self):
-        print("El Soldado ataca con su espada")
+    def hacer_sonido(self):
+        print("El animal hace un sonido")
 
-class Arquero(Unidad):
-    def atacar(self):
-        print("El Arquero dispara una flecha")
-
-class Mago(Unidad):
-    def atacar(self):
-        print("El Mago lanza un hechizo")
-
-# Ejemplo de uso
-unidades = [Soldado(), Arquero(), Mago()]
-for unidad in unidades:
-    unidad.atacar()
+class Perro(Animal):
+    def hacer_sonido(self):
+        print("El perro ladra")
 ```
 
-### 5.3. Polimorfismo y Herencia
-El polimorfismo se suele utilizar junto con la herencia. Al heredar de una clase base, las subclases pueden sobrescribir los métodos para proporcionar comportamientos específicos.
+### 4.3. Sobrescritura de Métodos
+Una subclase puede sobrescribir métodos de la superclase para alterar o extender su comportamiento. Esto es útil cuando necesitas que la subclase tenga un comportamiento diferente al de la superclase.
 
-#### Ejemplo en el sector empresarial:
-Considera una aplicación para calcular el salario de empleados en una empresa. Existen diferentes tipos de empleados: empleados a tiempo completo, empleados a tiempo parcial y contratistas. Cada uno tiene una forma diferente de calcular su salario.
-
+Ejemplo:
 ```python
-class Empleado:
-    def calcular_salario(self):
-        raise NotImplementedError("Este método debe ser sobrescrito por subclases")
+class Animal:
+    def hacer_sonido(self):
+        print("El animal hace un sonido")
 
-class EmpleadoTiempoCompleto(Empleado):
-    def __init__(self, salario_base):
-        self.salario_base = salario_base
+class Gato(Animal):
+    def hacer_sonido(self):
+        print("El gato maúlla")
 
-    def calcular_salario(self):
-        return self.salario_base
-
-class EmpleadoTiempoParcial(Empleado):
-    def __init__(self, horas_trabajadas, pago_por_hora):
-        self.horas_trabajadas = horas_trabajadas
-        self.pago_por_hora = pago_por_hora
-
-    def calcular_salario(self):
-        return self.horas_trabajadas * self.pago_por_hora
-
-class Contratista(Empleado):
-    def __init__(self, proyecto, tarifa):
-        self.proyecto = proyecto
-        self.tarifa = tarifa
-
-    def calcular_salario(self):
-        return self.tarifa
-
-# Ejemplo de uso
-empleados = [
-    EmpleadoTiempoCompleto(3000),
-    EmpleadoTiempoParcial(80, 20),
-    Contratista("Desarrollo Web", 5000)
-]
-
-for empleado in empleados:
-    print(f"Salario: {empleado.calcular_salario()}")
+gato = Gato("Michi")
+gato.hacer_sonido()  # Imprime "El gato maúlla"
 ```
 
-### 5.4. Métodos Abstractos y Clases Abstractas
-En Python, puedes usar la biblioteca `abc` (Abstract Base Class) para crear clases y métodos abstractos. Las clases abstractas no pueden ser instanciadas directamente y sirven como plantillas para otras clases.
+### 4.4. Uso de `super()`
+El método `super()` se utiliza para llamar a métodos de la superclase desde la subclase. Esto es útil cuando quieres extender el comportamiento de un método de la superclase en lugar de sobrescribirlo por completo.
 
+Ejemplo:
 ```python
-from abc import ABC, abstractmethod
+class Animal:
+    def __init__(self, nombre):
+        self.nombre = nombre
 
-class Herramienta(ABC):
-    @abstractmethod
-    def usar(self):
-        pass
+    def hacer_sonido(self):
+        print("El animal hace un sonido")
 
-class Martillo(Herramienta):
-    def usar(self):
-        print("Usando el martillo para clavar un clavo")
+class Perro(Animal):
+    def __init__(self, nombre, raza):
+        super().__init__(nombre)
+        self.raza = raza
 
-class Destornillador(Herramienta):
-    def usar(self):
-        print("Usando el destornillador para apretar un tornillo")
+    def hacer_sonido(self):
+        super().hacer_sonido()  # Llama al método de la superclase
+        print("El perro ladra")
 
-# Ejemplo de uso
-herramientas = [Martillo(), Destornillador()]
-for herramienta in herramientas:
-    herramienta.usar()
+perro = Perro("Rex", "Labrador")
+perro.hacer_sonido()
+# Imprime:
+# El animal hace un sonido
+# El perro ladra
 ```
 
-El polimorfismo te permite escribir código más flexible y reutilizable al permitir que diferentes clases utilicen métodos con el mismo nombre pero con comportamientos diferentes.
+La herencia te permite crear jerarquías de clases que reutilizan y extienden funcionalidades, lo que facilita la organización y escalabilidad del código.
 
-- En un juego de simulación de granja, diferentes animales producen recursos: las vacas producen leche, las gallinas producen huevos, y las ovejas producen lana. Define una clase abstracta `Animal` con un método abstracto `producir()`. Luego, crea subclases `Vaca`, `Gallina`, y `Oveja` que implementen el método `producir()` de manera específica. Simula un día en la granja donde cada animal produce su recurso.
+## Ejercicios
+
+- Define una clase `Vehiculo` con los atributos `marca` y `modelo`, y un método `arrancar()`. Luego, crea una subclase `Coche` que herede de `Vehiculo` y añade un atributo `puertas`. Sobrescribe el método `arrancar()` en `Coche` para que también indique el número de puertas. Crea un objeto de `Coche` y llama al método `arrancar()`.
 
 <br>
 
-- En una aplicación de gestión de proyectos, diferentes tipos de empleados realizan diferentes tipos de trabajo. Los programadores escriben código, los diseñadores crean gráficos, y los gerentes organizan reuniones. Define una clase abstracta `Empleado` con un método abstracto `trabajar()`. Crea subclases `Programador`, `Diseñador`, y `Gerente` que sobrescriban el método `trabajar()` para realizar la tarea correspondiente.
+- Crea una clase `Persona` con los atributos `nombre` y `edad`, y un método `presentarse()` que imprima un mensaje con estos datos. Luego, crea una subclase `Estudiante` que herede de `Persona` y añade un atributo `carrera`. Sobrescribe el método `presentarse()` en `Estudiante` para que también indique la carrera del estudiante. Crea un objeto de `Estudiante` y llama al método `presentarse()`.
 
 <br>
 
-- En una plataforma de comercio electrónico, diferentes métodos de pago pueden ser utilizados para completar una compra. Los pagos con tarjeta de crédito, PayPal, y criptomonedas requieren diferentes procesos. Define una clase abstracta `MetodoPago` con un método abstracto `procesar_pago()`. Crea subclases `TarjetaCredito`, `PayPal`, y `Criptomoneda` que implementen este método de acuerdo a sus procesos específicos.
+- Desarrolla una clase `Empleado` con los atributos `nombre` y `salario`. Luego, crea una subclase `Gerente` que herede de `Empleado` y añade un atributo `departamento`. Sobrescribe el método `__str__()` en `Gerente` para que devuelva una cadena con toda la información del gerente, incluyendo su nombre, salario y departamento.
+
+ 

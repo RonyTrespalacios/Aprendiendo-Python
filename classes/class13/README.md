@@ -1,95 +1,89 @@
-# Herencia
+# Encapsulamiento
 
-### 4.1. Concepto de Herencia en POO
-La herencia es un principio fundamental en la Programación Orientada a Objetos que permite crear nuevas clases a partir de clases existentes. La clase nueva, llamada subclase o clase derivada, hereda atributos y métodos de la clase existente, conocida como superclase o clase base. Esto facilita la reutilización de código y la creación de estructuras jerárquicas.
+### 3.1. Principio de Encapsulamiento
+El encapsulamiento es uno de los principios fundamentales de la Programación Orientada a Objetos. Consiste en restringir el acceso directo a los atributos y métodos de un objeto, exponiendo únicamente lo necesario para interactuar con el objeto. Esto se hace para proteger la integridad de los datos y evitar modificaciones accidentales o no deseadas.
 
-- **Ventajas de la herencia:**
-  - **Reutilización de código:** Permite extender las funcionalidades de clases existentes sin reescribir el código.
-  - **Organización:** Facilita la creación de estructuras jerárquicas donde las clases se organizan de manera lógica.
+### 3.2. Atributos y Métodos Privados
+En Python, no existen verdaderos modificadores de acceso como `private` o `protected` que se encuentran en otros lenguajes de programación. Sin embargo, hay convenciones para indicar que un atributo o método debe ser tratado como privado:
 
-### 4.2. Creación de Subclases
-Para crear una subclase en Python, defines una nueva clase que hereda de una clase existente. Esto se hace colocando el nombre de la superclase entre paréntesis después del nombre de la subclase.
+- **Atributos y Métodos Privados:** Se indica anteponiendo un guion bajo `_` al nombre del atributo o método. Esto sugiere que no debe ser accedido desde fuera de la clase.
 
-- **Sintaxis básica:**
-  ```python
-  class SuperClase:
-      # Atributos y métodos de la superclase
-
-  class SubClase(SuperClase):
-      # Atributos y métodos adicionales de la subclase
-  ```
+- **Atributos y Métodos Protegidos:** Se indica anteponiendo dos guiones bajos `__`, lo que hace que el nombre del atributo sea "mangling" (transformado) para que sea menos accesible desde fuera de la clase.
 
 Ejemplo:
 ```python
-class Animal:
-    def __init__(self, nombre):
-        self.nombre = nombre
+class Persona:
+    def __init__(self, nombre, edad):
+        self._nombre = nombre  # Atributo "privado"
+        self.__edad = edad  # Atributo "protegido"
 
-    def hacer_sonido(self):
-        print("El animal hace un sonido")
+    def _mostrar_nombre(self):
+        print(f"Nombre: {self._nombre}")
 
-class Perro(Animal):
-    def hacer_sonido(self):
-        print("El perro ladra")
+    def __mostrar_edad(self):
+        print(f"Edad: {self.__edad}")
 ```
 
-### 4.3. Sobrescritura de Métodos
-Una subclase puede sobrescribir métodos de la superclase para alterar o extender su comportamiento. Esto es útil cuando necesitas que la subclase tenga un comportamiento diferente al de la superclase.
+### 3.3. Métodos `getter` y `setter`
+Para acceder o modificar los atributos privados de un objeto de manera controlada, se utilizan métodos `getter` y `setter`.
+
+- **Métodos `getter`:** Permiten obtener el valor de un atributo privado.
+- **Métodos `setter`:** Permiten modificar el valor de un atributo privado, aplicando validaciones si es necesario.
 
 Ejemplo:
 ```python
-class Animal:
-    def hacer_sonido(self):
-        print("El animal hace un sonido")
+class Persona:
+    def __init__(self, nombre, edad):
+        self._nombre = nombre
+        self.__edad = edad
 
-class Gato(Animal):
-    def hacer_sonido(self):
-        print("El gato maúlla")
+    # Método getter para edad
+    def get_edad(self):
+        return self.__edad
 
-gato = Gato("Michi")
-gato.hacer_sonido()  # Imprime "El gato maúlla"
+    # Método setter para edad
+    def set_edad(self, nueva_edad):
+        if nueva_edad > 0:
+            self.__edad = nueva_edad
+        else:
+            print("La edad debe ser un número positivo")
+
+persona = Persona("Ana", 30)
+print(persona.get_edad())  # Imprime 30
+persona.set_edad(35)  # Cambia la edad a 35
+print(persona.get_edad())  # Imprime 35
 ```
 
-### 4.4. Uso de `super()`
-El método `super()` se utiliza para llamar a métodos de la superclase desde la subclase. Esto es útil cuando quieres extender el comportamiento de un método de la superclase en lugar de sobrescribirlo por completo.
+### 3.4. Métodos Especiales (`__init__`, `__str__`, etc.)
+Python proporciona métodos especiales, también conocidos como métodos mágicos, que tienen un significado especial en la POO:
+
+- **`__init__`:** Es el constructor de la clase, se llama automáticamente cuando se crea una nueva instancia de la clase.
+- **`__str__`:** Devuelve una representación en cadena del objeto, útil para imprimir la información del objeto de manera legible.
 
 Ejemplo:
 ```python
-class Animal:
-    def __init__(self, nombre):
-        self.nombre = nombre
+class Persona:
+    def __init__(self, nombre, edad):
+        self._nombre = nombre
+        self.__edad = edad
 
-    def hacer_sonido(self):
-        print("El animal hace un sonido")
+    def __str__(self):
+        return f"Nombre: {self._nombre}, Edad: {self.__edad}"
 
-class Perro(Animal):
-    def __init__(self, nombre, raza):
-        super().__init__(nombre)
-        self.raza = raza
-
-    def hacer_sonido(self):
-        super().hacer_sonido()  # Llama al método de la superclase
-        print("El perro ladra")
-
-perro = Perro("Rex", "Labrador")
-perro.hacer_sonido()
-# Imprime:
-# El animal hace un sonido
-# El perro ladra
+persona = Persona("Carlos", 40)
+print(persona)  # Imprime "Nombre: Carlos, Edad: 40"
 ```
 
-La herencia te permite crear jerarquías de clases que reutilizan y extienden funcionalidades, lo que facilita la organización y escalabilidad del código.
+El encapsulamiento te ayuda a mantener la integridad de los datos y a controlar cómo se accede y modifica la información dentro de un objeto.
 
-## Ejercicios
+## Ejercicios propuestos:
 
-- Define una clase `Vehiculo` con los atributos `marca` y `modelo`, y un método `arrancar()`. Luego, crea una subclase `Coche` que herede de `Vehiculo` y añade un atributo `puertas`. Sobrescribe el método `arrancar()` en `Coche` para que también indique el número de puertas. Crea un objeto de `Coche` y llama al método `arrancar()`.
+- Define una clase `CuentaBancaria` con un atributo privado `__saldo`. Crea métodos `depositar` y `retirar` para modificar el saldo, y un método `consultar_saldo` que retorne el saldo actual. Asegúrate de que no sea posible retirar más dinero del que está disponible.
 
 <br>
 
-- Crea una clase `Persona` con los atributos `nombre` y `edad`, y un método `presentarse()` que imprima un mensaje con estos datos. Luego, crea una subclase `Estudiante` que herede de `Persona` y añade un atributo `carrera`. Sobrescribe el método `presentarse()` en `Estudiante` para que también indique la carrera del estudiante. Crea un objeto de `Estudiante` y llama al método `presentarse()`.
+- Crea una clase `Libro` con los atributos `titulo`, `autor`, y `__precio`. Define métodos `get_precio` y `set_precio` para acceder y modificar el precio del libro. Implementa validación en el método `set_precio` para asegurar que el precio no sea negativo.
 
 <br>
 
-- Desarrolla una clase `Empleado` con los atributos `nombre` y `salario`. Luego, crea una subclase `Gerente` que herede de `Empleado` y añade un atributo `departamento`. Sobrescribe el método `__str__()` en `Gerente` para que devuelva una cadena con toda la información del gerente, incluyendo su nombre, salario y departamento.
-
- 
+- Desarrolla una clase `Empleado` con los atributos `nombre`, `cargo`, y `__salario`. Implementa un método `__str__` que retorne una cadena con la información del empleado en un formato legible. Añade métodos para modificar el salario y cargo del empleado, pero asegúrate de que el salario no sea inferior a un valor mínimo.

@@ -219,7 +219,7 @@ summary:hover {
   font-size: 1rem; /* Ajustar el tamaño de la fuente */
   font-weight: 600; /* Hacer el texto un poco más destacado */
   color: #ffffff;
-  background: #3498db; /* Color de fondo del botón */
+  background: #ff4500; /* Color de fondo del botón */
   padding: 12px 20px; /* Espaciado interior */
   border-radius: 5px; /* Bordes redondeados */
   display: block; /* Ocupa toda la fila */
@@ -229,7 +229,7 @@ summary:hover {
 }
 
 #sidebar #home-button:hover {
-  background: #2980b9; /* Color más oscuro al pasar el cursor */
+  background: #ffac90; /* Color más oscuro al pasar el cursor */
   transform: translateY(-3px); /* Pequeño desplazamiento hacia arriba */
 }
 

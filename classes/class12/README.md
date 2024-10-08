@@ -1,89 +1,124 @@
-# Encapsulamiento
+# Programación Orientada a Objetos en Python
 
-### 3.1. Principio de Encapsulamiento
-El encapsulamiento es uno de los principios fundamentales de la Programación Orientada a Objetos. Consiste en restringir el acceso directo a los atributos y métodos de un objeto, exponiendo únicamente lo necesario para interactuar con el objeto. Esto se hace para proteger la integridad de los datos y evitar modificaciones accidentales o no deseadas.
+## 1. Introducción a la Programación Orientada a Objetos (POO)
+## 2. Definición de Clases en Python
 
-### 3.2. Atributos y Métodos Privados
-En Python, no existen verdaderos modificadores de acceso como `private` o `protected` que se encuentran en otros lenguajes de programación. Sin embargo, hay convenciones para indicar que un atributo o método debe ser tratado como privado:
+### 1.1. Qué es la Programación Orientada a Objetos
+La Programación Orientada a Objetos (POO) es un paradigma de programación que organiza el código en torno a "objetos" en lugar de funciones y procedimientos. Estos objetos son instancias de "clases", que definen sus propiedades (atributos) y comportamientos (métodos). La POO permite modelar problemas del mundo real de manera más intuitiva, y facilita la reutilización y la escalabilidad del código.
 
-- **Atributos y Métodos Privados:** Se indica anteponiendo un guion bajo `_` al nombre del atributo o método. Esto sugiere que no debe ser accedido desde fuera de la clase.
+- **Ventajas de la POO:**
+  - **Modularidad:** El código se organiza en clases, lo que facilita su mantenimiento y reutilización.
+  - **Reutilización:** Puedes reutilizar clases existentes para crear nuevas funcionalidades mediante la herencia.
+  - **Escalabilidad:** La POO facilita la creación de sistemas grandes y complejos mediante la definición clara de responsabilidades y relaciones entre objetos.
 
-- **Atributos y Métodos Protegidos:** Se indica anteponiendo dos guiones bajos `__`, lo que hace que el nombre del atributo sea "mangling" (transformado) para que sea menos accesible desde fuera de la clase.
+### 1.2. Conceptos Fundamentales de la POO
 
-Ejemplo:
-```python
-class Persona:
-    def __init__(self, nombre, edad):
-        self._nombre = nombre  # Atributo "privado"
-        self.__edad = edad  # Atributo "protegido"
+- **Objetos y Clases:**
+  - **Clase:** Es un modelo o plantilla a partir de la cual se crean objetos. Define los atributos y métodos que el objeto tendrá.
+  - **Objeto:** Es una instancia de una clase. Cada objeto creado a partir de una clase tiene sus propios valores para los atributos definidos en la clase.
 
-    def _mostrar_nombre(self):
-        print(f"Nombre: {self._nombre}")
+- **Atributos y Métodos:**
+  - **Atributos:** Son las propiedades o características de un objeto (por ejemplo, el color de un coche o la velocidad de un animal).
+  - **Métodos:** Son las acciones o comportamientos que un objeto puede realizar (por ejemplo, arrancar un coche o cazar una presa).
 
-    def __mostrar_edad(self):
-        print(f"Edad: {self.__edad}")
-```
+- **Instanciación de Objetos:**
+  - La instanciación es el proceso de crear un objeto a partir de una clase. Cuando instancias una clase, se crea un nuevo objeto en memoria con sus propios valores de atributos y métodos.
 
-### 3.3. Métodos `getter` y `setter`
-Para acceder o modificar los atributos privados de un objeto de manera controlada, se utilizan métodos `getter` y `setter`.
+  Ejemplo básico de una clase e instanciación:
+  ```python
+  class Coche:
+      def __init__(self, color, velocidad):
+          self.color = color
+          self.velocidad = velocidad
 
-- **Métodos `getter`:** Permiten obtener el valor de un atributo privado.
-- **Métodos `setter`:** Permiten modificar el valor de un atributo privado, aplicando validaciones si es necesario.
+      def arrancar(self):
+          print("El coche ha arrancado")
 
-Ejemplo:
-```python
-class Persona:
-    def __init__(self, nombre, edad):
-        self._nombre = nombre
-        self.__edad = edad
+  # Instanciación de un objeto
+  mi_coche = Coche("rojo", 120)
+  mi_coche.arrancar()
+  ```
 
-    # Método getter para edad
-    def get_edad(self):
-        return self.__edad
+### 2.1. Definición de Clases en Python
+Una clase en Python se define utilizando la palabra clave `class`, seguida del nombre de la clase y dos puntos `:`. Dentro de la clase, defines los atributos y métodos que serán comunes a todas las instancias de la clase.
 
-    # Método setter para edad
-    def set_edad(self, nueva_edad):
-        if nueva_edad > 0:
-            self.__edad = nueva_edad
-        else:
-            print("La edad debe ser un número positivo")
+- **Sintaxis básica para definir una clase:**
+  ```python
+  class NombreDeLaClase:
+      # Definir atributos y métodos
+  ```
 
-persona = Persona("Ana", 30)
-print(persona.get_edad())  # Imprime 30
-persona.set_edad(35)  # Cambia la edad a 35
-print(persona.get_edad())  # Imprime 35
-```
+- **Atributos de Instancia vs. Atributos de Clase:**
+  - **Atributos de Instancia:** Son específicos de cada objeto creado a partir de la clase. Se definen normalmente dentro del método `__init__`.
+  - **Atributos de Clase:** Son compartidos por todas las instancias de la clase.
 
-### 3.4. Métodos Especiales (`__init__`, `__str__`, etc.)
-Python proporciona métodos especiales, también conocidos como métodos mágicos, que tienen un significado especial en la POO:
+  Ejemplo:
+  ```python
+  class Coche:
+      ruedas = 4  # Atributo de clase
 
-- **`__init__`:** Es el constructor de la clase, se llama automáticamente cuando se crea una nueva instancia de la clase.
-- **`__str__`:** Devuelve una representación en cadena del objeto, útil para imprimir la información del objeto de manera legible.
+      def __init__(self, color, marca):
+          self.color = color  # Atributo de instancia
+          self.marca = marca  # Atributo de instancia
+  ```
 
-Ejemplo:
-```python
-class Persona:
-    def __init__(self, nombre, edad):
-        self._nombre = nombre
-        self.__edad = edad
+### 2.2. Creación e Instanciación de Objetos
+Una vez que has definido una clase, puedes crear objetos (instancias) de esa clase. Cada objeto es una instancia independiente con sus propios valores para los atributos definidos en la clase.
 
-    def __str__(self):
-        return f"Nombre: {self._nombre}, Edad: {self.__edad}"
+- **Sintaxis para crear un objeto:**
+  ```python
+  mi_objeto = NombreDeLaClase(parametros)
+  ```
 
-persona = Persona("Carlos", 40)
-print(persona)  # Imprime "Nombre: Carlos, Edad: 40"
-```
+- **Acceso y modificación de atributos:**
+  - Puedes acceder a los atributos de un objeto utilizando la sintaxis `objeto.atributo`.
+  - Puedes modificar los atributos de un objeto asignándoles un nuevo valor con `objeto.atributo = nuevo_valor`.
 
-El encapsulamiento te ayuda a mantener la integridad de los datos y a controlar cómo se accede y modifica la información dentro de un objeto.
+  Ejemplo:
+  ```python
+  mi_coche = Coche("rojo", "Toyota")
+  print(mi_coche.color)  # Imprime "rojo"
+  mi_coche.color = "azul"  # Modifica el color
+  print(mi_coche.color)  # Imprime "azul"
+  ```
 
-## Ejercicios propuestos:
+### 2.3. Métodos de Instancia
+Los métodos de instancia son funciones definidas dentro de una clase que operan sobre los atributos del objeto. El primer parámetro de cualquier método de instancia es siempre `self`, que hace referencia al propio objeto.
 
-- Define una clase `CuentaBancaria` con un atributo privado `__saldo`. Crea métodos `depositar` y `retirar` para modificar el saldo, y un método `consultar_saldo` que retorne el saldo actual. Asegúrate de que no sea posible retirar más dinero del que está disponible.
+- **Definición de un método:**
+  ```python
+  class Coche:
+      def arrancar(self):
+          print("El coche ha arrancado")
+  ```
+
+- **Llamada a un método:**
+  ```python
+  mi_coche.arrancar()  # Llama al método 'arrancar' del objeto 'mi_coche'
+  ```
+
+## Ejercicios propuestos
+
+- Define una clase llamada `Persona` que tenga los atributos `nombre` y `edad`. Luego, crea un objeto de la clase `Persona` y muestra su nombre y edad en la pantalla.
 
 <br>
 
-- Crea una clase `Libro` con los atributos `titulo`, `autor`, y `__precio`. Define métodos `get_precio` y `set_precio` para acceder y modificar el precio del libro. Implementa validación en el método `set_precio` para asegurar que el precio no sea negativo.
+- Crea una clase `Rectangulo` con los atributos `ancho` y `alto`. Define un método `area()` que calcule el área del rectángulo. Crea un objeto de `Rectangulo`, asigna valores a `ancho` y `alto`, y muestra el área calculada.
 
 <br>
 
-- Desarrolla una clase `Empleado` con los atributos `nombre`, `cargo`, y `__salario`. Implementa un método `__str__` que retorne una cadena con la información del empleado en un formato legible. Añade métodos para modificar el salario y cargo del empleado, pero asegúrate de que el salario no sea inferior a un valor mínimo.
+- Desarrolla una clase `Coche` con los atributos `marca` y `modelo`. Añade un método `arrancar()` que muestre un mensaje indicando que el coche ha arrancado. Luego, crea varios objetos de la clase `Coche` y llama al método `arrancar()` en cada uno de ellos.
+
+<br>
+
+- Define una clase `Libro` con los atributos `titulo` y `autor`. Crea un método `mostrar_info` que imprima el título y el autor del libro. Luego, crea un objeto de la clase `Libro` y llama al método `mostrar_info`.
+
+<br>
+
+- Crea una clase `CuentaBancaria` con los atributos `titular` y `saldo`. Define un método `depositar(cantidad)` que aumente el saldo de la cuenta, y un método `retirar(cantidad)` que disminuya el saldo si hay suficiente dinero en la cuenta. Crea un objeto de `CuentaBancaria`, realiza un depósito y una retirada, y muestra el saldo final.
+
+<br>
+
+- Desarrolla una clase `Coche` que tenga un atributo `kilometraje` y un método `conducir(kilometros)` que aumente el kilometraje del coche. Crea un objeto de la clase `Coche`, conduce el coche una cierta cantidad de kilómetros y muestra el kilometraje final.
+
+<br>

@@ -35,10 +35,11 @@ const classes = [
   { id: "class08", name: "Clase 8: Estructuras de Control de Flujo III" },
   { id: "class09", name: "Clase 9: Manejo de Errores y Excepciones" },
   { id: "class10", name: "Clase 10: Funciones y Modularidad" },
-  { id: "class11", name: "Clase 11: Introducción a POO" },
-  { id: "class12", name: "Clase 12: Encapsulamiento" },
-  { id: "class13", name: "Clase 13: Herencia" },
-  { id: "class14", name: "Clase 14: Polimorfismo" },
+  { id: "class11", name: "Clase 11: Manejo de strings avanzado" },
+  { id: "class11", name: "Clase 12: Introducción a POO" },
+  { id: "class12", name: "Clase 13: Encapsulamiento" },
+  { id: "class13", name: "Clase 14: Herencia" },
+  { id: "class14", name: "Clase 15: Polimorfismo" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
